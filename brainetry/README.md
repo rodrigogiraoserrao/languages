@@ -67,7 +67,7 @@ def E(c):
 
 If you have **Brainetry** code in a file you can run it with `cli.py path/to/file`. I also included two flags `--bf2btry` and `--btry2bf` you can use to translate brainfck code to **Brainetry** and the other way around.
 
-The examples that follow have the corresponding source code in the `btry` directory and you can test a given `file` with `cli.py file`.
+The examples that follow have the corresponding source code in the `btry` directory.
 
 ## CAT program
 
