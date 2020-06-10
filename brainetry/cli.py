@@ -1,7 +1,6 @@
 import argparse
 
 from brainetry import E
-from lorem import lorem
 
 def btry2bf(code):
     """Translate a brainetry program to brainfuck."""
@@ -16,6 +15,8 @@ def btry2bf(code):
 
 def bf2btry(code):
     """Translate a brainfuck program to brainetry."""
+
+    from lorem import lorem
 
     while "\n" in lorem:
         lorem = lorem.replace("\n", "")
@@ -54,13 +55,26 @@ if __name__ == "__main__":
         help="translate brainfuck to brainetry"
     )
 
+    parser.add_argument(
+        "-o", "--output", metavar="output-to",
+        help="path to file to write output to; use with --bf2btry or --btry2bf"
+    )
+
     args = parser.parse_args()
     if args.file:
         with open(args.file, "r") as f:
             inp = f.read()
 
         if args.btry2bf:
-            print(btry2bf(inp))
-
+            r = btry2bf(inp)
+        elif args.bf2btry:
+            ops, r = bf2btry(inp)
+            print(ops)
+            print(r)
         else:
             E(inp)
+            r = ""
+
+        if (outfile := args.output) and r:
+            with open(outfile, "w") as f:
+                f.write(r)
