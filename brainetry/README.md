@@ -69,6 +69,10 @@ The `--btry2bf` flag is another utility flag. It converts a **Brainetry** progra
 
  > For example, running `cli.py btry/yacat.btry --btry2bf` gives as output `,[<,]»[.<]`.
 
+## `-g`, `--golf`
+
+This `--golf` flag is another utility flag used to convert a **Brainetry** program into its single-character words version.
+
 ## `-o`, `--output`
 
 The `-o` flag can be used to also write the CLI output to the given file.

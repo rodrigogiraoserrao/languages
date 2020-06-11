@@ -1,4 +1,9 @@
+"""
+Command Line Interface (CLI) for the Brainetry programming language.
+"""
+
 import argparse
+import sys
 
 from brainetry import E
 
@@ -40,6 +45,17 @@ def bf2btry(code):
 
     return ops_is, result
 
+def golf(inp):
+    """Golf a Brainetry program to the maximum."""
+
+    r = ""
+    for line in inp.split("\n"):
+        ran = range(len([*filter(bool, line.split(" "))]))
+        ran = ["abcdefghijklm"[i] for i in ran]
+        r += " ".join(ran) + "\n"
+    r = r[:-1]
+    return r
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -53,6 +69,10 @@ if __name__ == "__main__":
     group.add_argument(
         "--bf2btry", action="store_true", default=False,
         help="translate brainfuck to brainetry"
+    )
+    group.add_argument(
+        "-g", "--golf", action="store_true", default=False,
+        help="golf a .btry program to single-character words"
     )
 
     parser.add_argument(
@@ -74,6 +94,12 @@ if __name__ == "__main__":
         elif args.bf2btry:
             ops, r = bf2btry(inp)
             print(ops)
+            print(r)
+        elif args.golf:
+            if not args.input.endswith(".btry"):
+                parser.print_help()
+                sys.exit(0)
+            r = golf(inp)
             print(r)
         else:
             E(inp)
