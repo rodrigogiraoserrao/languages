@@ -40,7 +40,7 @@ The command line interface (`cli.py`) can
 Running `cli.py -h` you get this help message:
 
 ```
-usage: cli.py [-h] [--btry2bf | --bf2btry] [-o output-to] input
+usage: cli.py [-h] [--btry2bf | --bf2btry | -g] [-o output-to] input
 
 positional arguments:
   input                 input to the Brainetry CLI
@@ -49,6 +49,7 @@ optional arguments:
   -h, --help            show this help message and exit
   --btry2bf             translate brainetry to brainfuck
   --bf2btry             translate brainfuck to brainetry
+  -g, --golf            golf a .btry program to single-character words
   -o output-to, --output output-to
                         path to file to write output to; use with --bf2btry or --btry2bf
 ```
