@@ -8,9 +8,9 @@ def btry2bf(code):
     result = ""
     for line in code.split("\n"):
         n = len([*filter(bool, line.split(" "))])
-        if n < 2 or n > 9:
+        if n > 9:
             continue
-        result += "  ><+-,.[]"[n]
+        result += "«»><+-,.[]"[n]
     return result
 
 def bf2btry(code):
@@ -24,13 +24,13 @@ def bf2btry(code):
 
     result = ""
     source = lorem[::]
-    ops = "><+-,.[]"
+    ops = "«»><+-,.[]"
     ops_is = []
     for c in code:
         if c == "\n":
             result += c
         if c in ops:
-            i = ops.index(c) + 2
+            i = ops.index(c)
             ops_is.append(i)
             if i > len(source):
                 source += lorem[::]
@@ -43,7 +43,7 @@ def bf2btry(code):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("file", help="read Braintry code from the given file")
+    parser.add_argument("input", help="input to the Brainetry CLI")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
@@ -61,12 +61,16 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    if args.file:
-        with open(args.file, "r") as f:
-            inp = f.read()
+    if args.input:
+        if args.input.endswith(".bf") or args.input.endswith(".btry"):
+            with open(args.input, "r") as f:
+                inp = f.read()
+        else:
+            inp = args.input
 
         if args.btry2bf:
             r = btry2bf(inp)
+            print(r)
         elif args.bf2btry:
             ops, r = bf2btry(inp)
             print(ops)
