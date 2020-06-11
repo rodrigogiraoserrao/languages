@@ -94,6 +94,16 @@ Take some input provided by you
 and throw it right back at your face !!!
 ```
 
+## Infinite loop
+
+This program in `btry\infinite.btry` loops forever doing nothing.
+
+```
+This program is useless.
+This program is useless because it runs forever.
+This program is useless because it does absolutely nothing.
+```
+
 ## Another CAT program
 
 This program in `btry\acat.btry` also takes user input and outputs it back to the user, but makes (superfluous) use of the **Brainetry** `«` operator.
