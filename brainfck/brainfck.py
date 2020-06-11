@@ -41,7 +41,7 @@ def evaluate(
             while ptr < 0:
                 memory.insert(0, 0)
                 ptr += 1
-                
+
         elif char == ',':   # read one input character
             if inp:
                 memory[ptr] = ord(inp[0]) % MEM_SIZE
@@ -68,7 +68,7 @@ def evaluate(
 
             if nesting_level:
                 raise Exception("Reached brainfck EOF.")
-            
+
             while memory[ptr]:
                 memory, ptr, inp, out = evaluate(sub_code, memory, ptr, inp, out)
 
