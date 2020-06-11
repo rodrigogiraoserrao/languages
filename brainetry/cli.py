@@ -101,6 +101,7 @@ if __name__ == "__main__":
                 sys.exit(0)
             r = golf(inp)
             print(r)
+            print(f"Golfed from {len(inp)} to {len(r)} bytes.")
         else:
             E(inp)
             r = ""
