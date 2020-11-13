@@ -1,4 +1,4 @@
-from sys import*;from io import*;M=256;V=argv;V.extend([""]*2);stdin=StringIO(V[2])if V[2]else stdin
+from sys import*;import io;M=256;V=argv;V.extend([""]*2);stdin=io.StringIO(V[2])if V[2]else stdin
 def I(b,t=[0],p=0):
  while b: # interpret while there's code
   c,*b=b;c="+-><,.[]".find(c) # get next op
