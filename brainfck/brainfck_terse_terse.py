@@ -1,6 +1,7 @@
-from sys import*;import io,os;V=argv;V.extend([""]*2);stdin=io.StringIO(V[2])if V[2]else stdin
-r=os.path.exists(V[1]);f=r and open(V[1]);b=f.read()if f else V[1];f.close()if f else None
-def I(b,t=[0],p=0):
+from sys import*;import io,os;V=argv;V.extend([""]*2);
+stdin=io.StringIO(bytes(V[2],"utf8").decode("unicode_escape"))if V[2]else stdin
+r=os.path.exists(V[1]);f=r and open(V[1]);b=f.read()if r else V[1];r and f.close()
+def I(b,t,p):
  while b: # interpret while there's code
   c,*b=b;c="+-><,.[]".find(c) # get next op
   if c in[0,1]:t[p]+=1-2*c;t[p]%=256 # increase memory cell and wrap at 256
@@ -11,4 +12,4 @@ def I(b,t=[0],p=0):
    d=1;j=[d:=d+(x=="[")-(x=="]")for x in b].index(0);b,b_=b[j+1:],b[:j]
    while t[p]:t,p=I(b_,t,p) # loop while memory cell is non-zero
  return t,p
-t,p=I(b);print();print(t,p) # interpret and print debugging info
+t,p=I(b,[0],0);print();print(t,p) # interpret and print debugging info
