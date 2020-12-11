@@ -1,20 +1,22 @@
 [
-Memory layout will be 0 0 A B TA TB A B TA TB ...
-The A and B cells will store digits of the numbers A and B.
-The TA and TB cells tell us how far the number goes, because
-a digit might be 0, in which case the corresponding A/B cell
-ends up with the value 0, and thus cannot be used to check
-for the presence of a digit.
-The two zeroes on the left are the landing cells for when
-we are at the end of some number A/B and use the consecutive TA/TBs
-to come back to the beginning.
-Uses ideas seen in brainfuck.org/fib_explained.b.
-This program performs ~400 instructions per character of output
-    when the numbers are approximately of the same size.
+    Memory layout will be 0 0 A B TA TB A B TA TB ...
+    The A and B cells will store digits of the numbers A and B.
+    The TA and TB cells tell us how far the number goes, because
+    a digit might be 0, in which case the corresponding A/B cell
+    ends up with the value 0, and thus cannot be used to check
+    for the presence of a digit.
+    The two zeroes on the left are the landing cells for when
+    we are at the end of some number A/B and use the consecutive TA/TBs
+    to come back to the beginning.
+    Uses ideas seen in brainfuck.org/fib_explained.b.
+    This program performs below 425 instructions per character of output
+        when the numbers are approximately of the same size
+        and below 585 when the numbers have different input sizes.
+        (Make it faster by writing explicitly the leading zeroes.)
 ]
 
 
->>,
+>>>>>>,
 [ go over each digit of A
  ----------
  [ the digit is different from 10 (newline ASCII code)
