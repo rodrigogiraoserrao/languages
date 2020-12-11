@@ -1,5 +1,5 @@
 [
-    Memory layout will be 0 0 A B TA TB A B TA TB ...
+    Memory layout will be 0 0 0 0 0 0 A B TA TB A B TA TB ...
     The A and B cells will store digits of the numbers A and B.
     The TA and TB cells tell us how far the number goes, because
     a digit might be 0, in which case the corresponding A/B cell
