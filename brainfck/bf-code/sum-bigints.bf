@@ -1,4 +1,7 @@
 [
+    Authored by github.com/RojerGS,
+        this program sums two arbitrarily big integers.
+    Reads the first one, then a newline, then the second one and then EOF.
     Memory layout will be 0 0 0 0 0 0 A B TA TB A B TA TB ...
     The A and B cells will store digits of the numbers A and B.
     The TA and TB cells tell us how far the number goes, because
